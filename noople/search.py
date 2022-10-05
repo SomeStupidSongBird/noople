@@ -38,8 +38,11 @@ def insert_query(search_query=None):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
 
+    #prepare the querry
+    
+
     # Insert a row of data
-    cursor.executescript("INSERT INTO query VALUES (NULL, '" + search_query + "');")
+    cursor.execute("INSERT INTO query VALUES (NULL, ?);",[search_query])
 
     # Save (commit) the changes
     conn.commit()
